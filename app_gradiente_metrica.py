@@ -144,7 +144,10 @@ funcion_texto = st.sidebar.text_input(
 )
 
 try:
-    f = sp.sympify(funcion_texto)
+    f = sp.sympify(
+        funcion_texto,
+        locals={"x": x, "y": y}
+    )
 except:
     st.error("La función ingresada no es válida.")
     st.stop()
